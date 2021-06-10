@@ -1,0 +1,40 @@
+﻿@model IEnumerable<ProductReviewApp.Models.ViewModel.ProductViewModel>
+@{ ViewBag.Title = "Create Product";
+}
+
+<h1>Create Product</h1>
+
+<div class="card">
+    <div class="card-header text-primary">
+        <a class="btn btn-success" asp-controller="Product" asp-action="Create">Add Product</a>
+    </div>
+
+    <div class="card-body">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Manufacturer</th>
+                    <th>Average Rating</th>
+                    <th>Update Product</th>
+                    <th>Delete Product</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var product in Model)
+                {
+                <tr>
+                    <td>@product.Name</td>
+                    <td>@product.Description</td>
+                    <td>@product.UserName</td>
+                    <td>@product.AverageRating</td>
+                    <td><a class="btn btn-primary" asp-action="Update" asp-route-id="@product.Id">Update Product</a></td>
+                    <td><a class="btn btn-primary" asp-action="Delete" asp-route-id="@product.Id">Delete Product</a></td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

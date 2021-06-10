@@ -1,0 +1,40 @@
+﻿@model IEnumerable<ProductReviewApp.Models.ViewModel.UserViewModel>
+@{ ViewBag.Title = "Register";
+}
+
+<h1>Create User</h1>
+
+<div class="card">
+    <div class="card-header text-primary">
+        <a class="btn btn-success" asp-controller="User" asp-action="Create">Add User</a>
+    </div>
+
+    <div class="card-body">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Gender</th>
+                    <th>Delete User</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in Model)
+                {
+                    <tr>
+                        <td>@user.Name</td>
+                        <td>@user.Email</td>
+                        <td>@user.Gender</td>
+                        <td>
+                            <a class="btn btn-primary" asp-action="Delete" asp-route-id="@user.Id">Delete User</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

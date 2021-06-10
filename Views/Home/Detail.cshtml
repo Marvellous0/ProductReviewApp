@@ -1,0 +1,33 @@
+﻿@model IEnumerable<ProductReviewApp.Models.ViewModel.ProductIndexViewModel>
+@{ ViewBag.Title = "Details"; }
+
+<h1 class="text-center text-secondary">Product Reviews</h1>
+
+<div class="card">
+    <div class="card-body">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>UserName</th>
+                    <th>Product</th>
+                    <th>Comment</th>
+                    <th>Ratings</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var review in Model)
+                {
+                    <tr class="text-primary">
+                        <td> @review.UserName</td>
+                        <td> @review.ProductName </td>
+                        <td>@review.Comment</td>
+                        <td>@review.Ratings </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<br />
+
+
